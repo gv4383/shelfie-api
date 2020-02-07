@@ -2,6 +2,8 @@ import express, { Application, Request, Response } from 'express';
 
 const app: Application = express();
 
-app.get('/', (req: Request, res: Response) => res.send('Hello World'));
+app.get('/api/status', (req: Request, res: Response) =>
+  res.status(204).send("Welp, it's working. Now what?"),
+);
 
-app.listen(5000, () => console.log('Listening on port 5000'));
+app.listen(5000, (): void => console.log('Listening on port 5000'));
