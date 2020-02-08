@@ -13,6 +13,20 @@ export const addProduct = (req: Request, res: Response): void => {
   }
 };
 
+export const editProduct = (req: Request, res: Response): void => {
+  const { id } = req.params;
+  const productIndex = inventory.findIndex((product: Product) => product.id === parseInt(id));
+
+  if (productIndex > -1) {
+    inventory[productIndex].name = req.body.name;
+    inventory[productIndex].price = parseFloat(req.body.price);
+
+    res.status(204).send('No Content');
+  } else {
+    res.status(404).send('Not Found. The requested id does not exist.');
+  }
+};
+
 export const deleteProduct = (req: Request, res: Response): void => {
   const { id } = req.params;
   const productIndex = inventory.findIndex((product: Product) => product.id === parseInt(id));
