@@ -41,7 +41,12 @@ export const editProduct = (req: Request, res: Response): void => {
 export const deleteProduct = (req: Request, res: Response): void => {
   const { id } = req.params;
   const productIndex = inventory.findIndex((product: Product) => product.id === parseInt(id));
-  inventory.splice(productIndex, 1);
 
-  res.status(204).send('No Content');
+  if (productIndex > -1) {
+    inventory.splice(productIndex, 1);
+
+    res.status(204).send('No Content');
+  } else {
+    res.status(404).send('Not Found. The requested id does not exist.');
+  }
 };
