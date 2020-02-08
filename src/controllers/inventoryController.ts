@@ -1,7 +1,9 @@
 import { Request, Response } from 'express';
 
+import { Product } from '../types/products';
+
 // eslint-disable-next-line
-export let inventory: object[] = [
+export let inventory: Product[] = [
   {
     id: 0,
     name: 'Left Boot',
