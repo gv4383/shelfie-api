@@ -1,15 +1,14 @@
-import express, { Application, Request, Response } from 'express';
+import express, { Application } from 'express';
 import bodyParser from 'body-parser';
 
+import { getStatus } from './controllers/statusController';
 import { getInventory } from './controllers/inventoryController';
 
 const app: Application = express();
 
 app.use(bodyParser.json());
 
-app.get('/api/status', (req: Request, res: Response) => {
-  res.status(204).send("Welp, it's working. Now what?");
-});
+app.get('/api/status', getStatus);
 
 app.get('/api/inventory', getInventory);
 
