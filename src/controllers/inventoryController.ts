@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 
-const inventory: object[] = [
+// eslint-disable-next-line
+export let inventory: object[] = [
   {
     id: 0,
     name: 'Left Boot',
