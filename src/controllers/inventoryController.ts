@@ -5,10 +5,12 @@ export let inventory: object[] = [
   {
     id: 0,
     name: 'Left Boot',
+    price: 1.29,
   },
   {
     id: 1,
     name: 'Green Mitten',
+    price: 8.69,
   },
 ];
 
