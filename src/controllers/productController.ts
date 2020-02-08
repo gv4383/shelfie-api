@@ -8,6 +8,6 @@ export const addProduct = (req: Request, res: Response): void => {
     inventory.push(req.body);
     res.status(204).send('No Content');
   } else {
-    res.status(400).send('Bad Request');
+    res.status(400).send('Bad Request. Service only accepts a price with 2 decimals.');
   }
 };
