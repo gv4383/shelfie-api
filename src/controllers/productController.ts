@@ -4,6 +4,17 @@ import { inventory } from './inventoryController';
 import { hasTwoDecimals } from '../utils/validators';
 import { Product } from '../types/products';
 
+export const getProduct = (req: Request, res: Response): void => {
+  const { id } = req.params;
+  const productIndex = inventory.findIndex((product: Product) => product.id === parseInt(id));
+
+  if (productIndex > -1) {
+    res.status(200).send(inventory[productIndex]);
+  } else {
+    res.status(404).send('Not Found. The requested id does not exist.');
+  }
+};
+
 export const addProduct = (req: Request, res: Response): void => {
   if (hasTwoDecimals(req.body.price.toString())) {
     inventory.push(req.body);
