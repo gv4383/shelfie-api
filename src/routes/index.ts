@@ -15,7 +15,7 @@ router.get('/status', getStatus);
 
 router.get('/inventory', getInventory);
 
-router.get('/product/:id', getProduct);
-router.post('/product', addProduct);
-router.put('/product/:id', editProduct);
-router.delete('/product/:id', deleteProduct);
+router.get('/products/:id', getProduct);
+router.post('/products', addProduct);
+router.put('/products/:id', editProduct);
+router.delete('/products/:id', deleteProduct);
