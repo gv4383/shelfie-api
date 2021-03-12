@@ -36,6 +36,7 @@ export const editProduct = (req: Request, res: Response): void => {
   const productIndex = inventory.findIndex((product: Product) => product.id === parseInt(id));
 
   if (productIndex > -1) {
+    inventory[productIndex].image_url = req.body.image_url;
     inventory[productIndex].name = req.body.name;
     inventory[productIndex].price = parseFloat(req.body.price);
 
